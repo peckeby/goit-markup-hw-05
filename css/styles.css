@@ -374,7 +374,7 @@
   
   .thumb-img > .label {
     position: absolute;
-    top: 224px;
+    height: 70px;
     width: 100%;
     bottom: 0;    
     background: rgba(47, 48, 58, 0.8);
@@ -541,8 +541,9 @@
     overflow: hidden;
   }
   
-  .project-link:hover .overlay-project-link {
-    transform: translatey(-294px);
+  .project-link:hover .overlay-project-link,
+  .project-link:focus .overlay-project-link {
+    transform: translatey(-100%);
   }
   
   .overlay-project-link {
