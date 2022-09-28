@@ -12,7 +12,7 @@
     --main-backggound-shadow: rgba(47, 48, 58, 0.4);
     --porfolio-card-overlay: rgba(33, 150, 243, 0.9);
 
-    --transition-timing: cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-timing: 250ms cubic-bezier(0.4, 0, 0.2, 1);
   }
   
   body {
@@ -133,6 +133,7 @@
     color: var(--text-gray-color);
     letter-spacing: 0.02em;
     font-weight: 500;
+    transition: color var(--transition-timing);
   }
   
   .envelope,
@@ -143,8 +144,6 @@
   .link-email:hover,
   .link-email:focus {
     color: var(--blue-color);
-    transition-duration: 250ms;
-    transition-timing-function: var(--transition-timing);
   }
   
   
@@ -169,6 +168,7 @@
   
   .link-nav {
     color: var(--main-text-color);
+    transition: color var(--transition-timing);
   }
   
   .link-nav-current {
@@ -195,8 +195,6 @@
   .link-nav:visited:hover,
   .link-nav:visited:focus {
     color: var(--blue-color);
-    transition-duration: 250ms;
-    transition-timing-function: var(--transition-timing);
   }
   
   .motto-order-section {
@@ -253,14 +251,13 @@
     display: inline;
     align-items: center;
     padding: 10px 32px;
+    transition: color var(--transition-timing), background-color var(--transition-timing);
   }
   
   .order-service:hover,
   .order-service:focus {
     color: var(--blue-color);
-    background-color: var(--main-color);
-    transition-duration: 250ms;
-    transition-timing-function: var(--transition-timing);
+    background-color: var(--main-color);    
   }
 
   .backdrop.is-hidden {
@@ -277,10 +274,9 @@
     height: 100%;
     background: rgba(0, 0, 0, 0.2);
     opacity: 1;
-    visibility: visible;
     transition:
-    scale 250ms var(--transition-timing),
-    opacity 250ms var(--transition-timing);
+    visibility var(--transition-timing),
+    opacity var(--transition-timing);
     }
 
   .modal-window {
@@ -300,7 +296,9 @@
   }
   
   .button-close {  
-    display: flex;  
+    display: flex;
+    align-items: center;
+    justify-content: center;
     width: 30px;
     height: 30px;
     color: var(--logo-studio-color);
@@ -308,18 +306,18 @@
     border: solid 1px rgba(0, 0, 0, 0.1);
     border-radius: 50%;
     padding: 6px;
+    transition: color var(--transition-timing), background-color var(--transition-timing);
   }
 
   .button-close:hover,
   .button-close:focus {
     color: var(--main-color);
     background-color: var(--blue-color);
-    transition-duration: 250ms;
-    transition-timing-function: var(--transition-timing);
   }
 
   .icon-close-window {
     fill: currentColor;
+    min-width: 18px;
   }
 
   .feature-name {
@@ -378,14 +376,15 @@
     position: absolute;
     top: 224px;
     width: 100%;
-    padding: 27px 0;
+    bottom: 0;    
     background: rgba(47, 48, 58, 0.8);
-    text-align: center;
     text-transform: uppercase;
     color: var(--main-color);
     font-weight: 700;
-    font-size: 14px;
     line-height: 1.142;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
   
   .team-cards-list {
@@ -448,14 +447,13 @@
     border-radius: 50%;
     background-color: var(--main-color);
     color: var(--icons-color);
+    transition: color var(--transition-timing), background-color var(--transition-timing);
   }
   
   .link-media:hover,
   .link-media:focus {
     color: var(--main-color);
     background: var(--blue-color);
-    transition-duration: 250ms;
-    transition-timing-function: var(--transition-timing);
   }
   
   .icon-item {
@@ -471,19 +469,18 @@
     border: 1px solid var(--icons-color);
     color: var(--icons-color);
     width: 170px;
-    height: 93px;
+    height: 92px;
     display: flex;
     align-items: center;
     justify-content: center;
     border-radius: 4px;
+    transition: color var(--transition-timing), border-color var(--transition-timing);
   }
   
   .partner-link:hover,
   .partner-link:focus {
     color: var(--blue-color);
     border-color: var(--blue-color);
-    transition-duration: 250ms;
-    transition-timing-function: var(--transition-timing);
   }
   
   .partner-icon {
@@ -509,6 +506,7 @@
     border-radius: 4px;
     font-family: 'Roboto', sans-serif;
     padding: 6px 22px;
+    transition: color var(--transition-timing), background-color var(--transition-timing), box-shadow var(--transition-timing);
   }
   
   .filter:hover,
@@ -518,8 +516,6 @@
     background-color: var(--blue-color);
     color: var(--main-color);
     box-shadow: 0px 3px 1px rgba(0, 0, 0, 0.1), 0px 1px 2px rgba(0, 0, 0, 0.08), 0px 2px 2px rgba(0, 0, 0, 0.12);
-    transition-duration: 250ms;
-    transition-timing-function: var(--transition-timing);
   }
   
   .projects {
@@ -532,31 +528,31 @@
   
   .project-link {
     display: block;
-    position: relative;
-    overflow: hidden;
+    transition: box-shadow var(--transition-timing);
   }
   
   .project-link:hover,
   .project-link:focus {
     box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12), 0px 4px 4px rgba(0, 0, 0, 0.06), 1px 4px 6px rgba(0, 0, 0, 0.16);
-    transition-duration: 250ms;
-    transition-timing-function: var(--transition-timing);
+  }
+
+  .project-overlay {
+    position: relative;
+    overflow: hidden;
   }
   
   .project-link:hover .overlay-project-link {
-    transform: translatey(0);
+    transform: translatey(-294px);
   }
   
   .overlay-project-link {
     position: absolute;
-    bottom: 110px;
+    transform: translatey(0);
     width: 100%;
     height: 294px;
     padding: 63px 24px;
     background-color: var(--porfolio-card-overlay);
-    transform: translatey(138%);
-    transition-duration: 250ms;
-    transition-timing-function: var(--transition-timing);
+    transition: transform var(--transition-timing);
   }
   
   .overlay-info {
@@ -638,12 +634,14 @@
   
   .address-link {
     color: var(--main-color);
+    transition: color var(--transition-timing);
   }
   
   .footer-contact,
   .footer-contact:visited {
     color: var(--main-color);
     opacity: 60%;
+    transition: color var(--transition-timing);
   }
   
   .logo-footer,
@@ -658,7 +656,5 @@
   .address-link:visited:focus {
     color: var(--blue-color);
     opacity: 100%;
-    transition-duration: 250ms;
-    transition-timing-function: var(--transition-timing);
   }
   
