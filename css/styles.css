@@ -277,6 +277,7 @@
     transition:
     visibility var(--transition-timing),
     opacity var(--transition-timing);
+    z-index: 2;
     }
 
   .modal-window {
